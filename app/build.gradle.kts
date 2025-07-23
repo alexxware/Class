@@ -6,6 +6,8 @@ plugins {
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
 
+    //google services plugin
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -74,5 +76,11 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
 
     //google fonts
-    implementation("androidx.compose.ui:ui-text-google-fonts")
+    implementation(libs.androidx.ui.text.google.fonts)
+    //boom firebase
+    implementation(platform("com.google.firebase:firebase-bom:34.0.0"))
+    //analitycs
+    //implementation("com.google.firebase:firebase-analytics")
+    //auth
+    implementation("com.google.firebase:firebase-auth")
 }

@@ -92,9 +92,10 @@ fun LoginScreen(
             }
         )
         ButtonPrimary(
-            text = stringResource(R.string.login),
             onClick = {}
-        )
+        ){
+            Text(stringResource(R.string.login))
+        }
         Spacer(modifier = Modifier.height(16.dp))
 
     }

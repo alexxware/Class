@@ -9,19 +9,16 @@ import androidx.compose.ui.text.font.FontWeight
 
 @Composable
 fun ButtonPrimary(
-    text: String,
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
-    enabled: Boolean = true
+    enabled: Boolean = true,
+    text: @Composable () -> Unit = {}
 ) {
     Button(
         onClick = onClick,
         modifier = modifier.fillMaxWidth(),
         enabled = enabled
     ) {
-        Text(
-            text = text,
-            fontWeight = FontWeight.Bold
-        )
+        text
     }
 }

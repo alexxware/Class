@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "485411397488",
+    "project_id": "class-9fcac",
+    "storage_bucket": "class-9fcac.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:485411397488:android:1e7b28278a6bbc0fcab9b5",
+        "android_client_info": {
+          "package_name": "com.alexxware.klas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzIi0G39pT1AYjjn0_IOuz1rF_8F_hcbU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
