@@ -5,7 +5,6 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinSerialization)
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
-
     //google services plugin
     id("com.google.gms.google-services")
 }
@@ -83,4 +82,8 @@ dependencies {
     //implementation("com.google.firebase:firebase-analytics")
     //auth
     implementation("com.google.firebase:firebase-auth")
+    //firestore
+    implementation("com.google.firebase:firebase-firestore")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.9.0")
 }

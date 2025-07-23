@@ -112,9 +112,9 @@ fun SignInScreen(
                 onClick = {
                     signInViewModel.register(email = viewModel.value.email, password = viewModel.value.password)
                 },
-                enabled = viewModel.value.isPasswordValid
+                enabled = viewModel.value.isPasswordValid && uiState.value != RegisterUiState.Loading
             ){
-                if (uiState == RegisterUiState.Loading){
+                if (uiState.value == RegisterUiState.Loading){
                     CircularProgressIndicator(
                         modifier = Modifier
                             .size(24.dp),
@@ -128,25 +128,21 @@ fun SignInScreen(
             Spacer(modifier = Modifier.height(16.dp))
 
             // Manejo de eventos de éxito/error
-            when (uiState) {
-                is RegisterUiState.Success -> {
-                    LaunchedEffect(Unit) {
+            LaunchedEffect(uiState.value) {
+                when (val state = uiState.value) {
+                    is RegisterUiState.Success -> {
                         Toast.makeText(context, "Registro exitoso", Toast.LENGTH_SHORT).show()
                         signInViewModel.clearUiState()
                         onRegisterSuccess()
                     }
-                }
-
-                is RegisterUiState.Error -> {
-                    val message = (uiState as RegisterUiState.Error).message
-                    LaunchedEffect(message) {
-                        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+                    is RegisterUiState.Error -> {
+                        Toast.makeText(context, state.message, Toast.LENGTH_LONG).show()
                         signInViewModel.clearUiState()
                     }
+                    else -> {}
                 }
-
-                else -> {}
             }
+
         }
     }
 }

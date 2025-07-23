@@ -12,13 +12,13 @@ fun ButtonPrimary(
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
     enabled: Boolean = true,
-    text: @Composable () -> Unit = {}
+    text: @Composable () -> Unit
 ) {
     Button(
         onClick = onClick,
         modifier = modifier.fillMaxWidth(),
         enabled = enabled
     ) {
-        text
+        text()
     }
 }

@@ -38,7 +38,15 @@ fun AppNavigation(
             )
         }
         composable(Home::class.java.simpleName) {
-            HomeScreen()
+            HomeScreen(
+                onBackToLogin = {
+                    navController.navigate(Login::class.java.simpleName){
+                        popUpTo(Home::class.java.simpleName){
+                            inclusive = true
+                        }
+                    }
+                }
+            )
         }
     }
 }

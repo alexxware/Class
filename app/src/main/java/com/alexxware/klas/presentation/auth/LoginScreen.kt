@@ -96,6 +96,7 @@ fun LoginScreen(
         ){
             Text(stringResource(R.string.login))
         }
+
         Spacer(modifier = Modifier.height(16.dp))
 
     }

@@ -15,10 +15,11 @@ import com.alexxware.klas.navigation.AppNavigation
 import com.alexxware.klas.ui.theme.KlasTheme
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
+import jakarta.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    private lateinit var  auth: FirebaseAuth
+    @Inject lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
