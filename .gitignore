@@ -1,4 +1,3 @@
-google-services.json
 *.iml
 .gradle
 /local.properties
@@ -14,3 +13,4 @@ google-services.json
 .externalNativeBuild
 .cxx
 local.properties
+app/google-services.json
