@@ -7,13 +7,19 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.alexxware.klas.presentation.auth.LoginScreen
 import com.alexxware.klas.presentation.auth.SignInScreen
+import com.alexxware.klas.presentation.content.HomeScreen
+import com.google.firebase.auth.FirebaseAuth
 
 @Composable
-fun AppNavigation(modifier: Modifier = Modifier) {
+fun AppNavigation(
+    modifier: Modifier = Modifier,
+    auth: FirebaseAuth
+) {
     val navController = rememberNavController()
+    val currentUser = auth.currentUser
     NavHost(
         navController = navController,
-        startDestination = Login::class.java.simpleName
+        startDestination = if(currentUser != null) Home::class.java.simpleName else Login::class.java.simpleName
     ) {
         composable(Login::class.java.simpleName){
             LoginScreen(modifier, navigateTo = { navController.navigate(SignIn::class.java.simpleName)})
@@ -25,8 +31,14 @@ fun AppNavigation(modifier: Modifier = Modifier) {
                 },
                 navigateToLogin = {
                     navController.popBackStack()
+                },
+                onRegisterSuccess = {
+                    navController.navigate(Home::class.java.simpleName)
                 }
             )
+        }
+        composable(Home::class.java.simpleName) {
+            HomeScreen()
         }
     }
 }
