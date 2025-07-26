@@ -40,10 +40,10 @@ class SignInViewModel @Inject constructor(
                     val userModel = User(
                         id = "",
                         name = _state.value.name,
-                        email = _state.value.name
+                        email = _state.value.email
                     )
 
-                    val saveResult = saveUserUseCase.invoke(userModel)
+                    val saveResult = saveUserUseCase(userModel)
                     if (saveResult.isSuccess){
                         _registerResult.value = RegisterUiState.Success(user)
                     } else {

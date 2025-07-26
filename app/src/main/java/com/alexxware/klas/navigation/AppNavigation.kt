@@ -22,7 +22,17 @@ fun AppNavigation(
         startDestination = if(currentUser != null) Home::class.java.simpleName else Login::class.java.simpleName
     ) {
         composable(Login::class.java.simpleName){
-            LoginScreen(modifier, navigateTo = { navController.navigate(SignIn::class.java.simpleName)})
+            LoginScreen(
+                modifier =  modifier,
+                navigateTo = { navController.navigate(SignIn::class.java.simpleName)},
+                onLoginSuccess = {
+                    navController.navigate(Home::class.java.simpleName){
+                        popUpTo(Login::class.java.simpleName){
+                            inclusive = true
+                        }
+                    }
+                }
+            )
         }
         composable(SignIn::class.java.simpleName) {
             SignInScreen(

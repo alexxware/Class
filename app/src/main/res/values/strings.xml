@@ -12,6 +12,6 @@
     <string name="register_name">Nombre de Ususario</string>
     <string name="register_confirmPassword">Confirmar Contraseña</string>
 
-
+    <string name="exit">Cerrar Sesión</string>
 
 </resources>

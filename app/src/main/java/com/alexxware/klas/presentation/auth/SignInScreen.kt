@@ -131,7 +131,6 @@ fun SignInScreen(
             LaunchedEffect(uiState.value) {
                 when (val state = uiState.value) {
                     is RegisterUiState.Success -> {
-                        Toast.makeText(context, "Registro exitoso", Toast.LENGTH_SHORT).show()
                         signInViewModel.clearUiState()
                         onRegisterSuccess()
                     }

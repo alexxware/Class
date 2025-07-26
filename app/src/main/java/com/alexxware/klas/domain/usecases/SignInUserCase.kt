@@ -10,4 +10,12 @@ class RegisterUserCase @Inject constructor(
     suspend operator fun invoke(email: String, password: String): Result<FirebaseUser?> {
         return repository.registerUser(email, password)
     }
+
+    suspend fun signIn(email: String, password: String): Result<FirebaseUser?>{
+        return repository.signIn(email, password)
+    }
+
+    suspend fun signOut() {
+        return repository.signOut()
+    }
 }
